@@ -26,7 +26,7 @@ function init() {
   // When API is ready...                                                         
   gapi.hangout.onApiReady.add(function(eventObj) {
     if (eventObj.isApiReady) {
-      var ctx = document.getElementById("img");
+      var ctx = document.getElementById("img").getContext("2d");;
       var x = 20, y = 20;
       ctx.beginPath();
       ctx.moveTo(x - 20, y - 20);
