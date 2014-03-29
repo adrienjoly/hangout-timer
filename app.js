@@ -26,8 +26,8 @@ function init() {
   // When API is ready...                                                         
   gapi.hangout.onApiReady.add(function(eventObj) {
     if (eventObj.isApiReady) {
-      console.log("ready");
-      document.getElementById('showParticipants').style.visibility = 'visible';
+      console.log("ready", gapi.hangout);
+      //document.getElementById('showParticipants').style.visibility = 'visible';
       //var overlay = gapi.hangout.av.effects.createOverlay();
       gapi.hangout.hideApp();
     }
