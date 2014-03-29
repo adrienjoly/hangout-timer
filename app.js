@@ -28,7 +28,7 @@ function init() {
     if (eventObj.isApiReady) {
       console.log("ready");
       document.getElementById('showParticipants').style.visibility = 'visible';
-      var overlay = gapi.hangout.av.effects.createOverlay();
+      //var overlay = gapi.hangout.av.effects.createOverlay();
       gapi.hangout.hideApp();
     }
   });
