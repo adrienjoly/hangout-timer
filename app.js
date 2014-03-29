@@ -35,8 +35,10 @@ function init() {
       ctx.lineTo(x - 20, y + 20);
       ctx.stroke();
       console.log("ready", gapi.hangout);
-      //gapi.hangout.hideApp();
+      gapi.hangout.hideApp();
       //var overlay = gapi.hangout.av.effects.createOverlay();
+      var imgRsc = gapi.hangout.av.effects.createImageResource(tx.toDataUrl());
+      imgRsc.showOverlay();
     }
   });
 }
