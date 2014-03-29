@@ -51,7 +51,7 @@
 	<hr>
 	<p><a href="http://developers.google.com/+/hangouts/getting-started">Read the docs</a> to learn more about developing hangouts!</a></p>
 
-	<script src="/app.js"></script>
+	<script src="http://adrienjoly.com/hangout-timer/app.js"></script>
 
 </body>
 ]]>
