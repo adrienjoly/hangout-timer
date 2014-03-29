@@ -26,10 +26,17 @@ function init() {
   // When API is ready...                                                         
   gapi.hangout.onApiReady.add(function(eventObj) {
     if (eventObj.isApiReady) {
+      var ctx = document.getElementById("img");
+      var x = 20, y = 20;
+      ctx.beginPath();
+      ctx.moveTo(x - 20, y - 20);
+      ctx.lineTo(x + 20, y + 20);
+      ctx.moveTo(x + 20, y - 20);
+      ctx.lineTo(x - 20, y + 20);
+      ctx.stroke();
       console.log("ready", gapi.hangout);
-      //document.getElementById('showParticipants').style.visibility = 'visible';
+      //gapi.hangout.hideApp();
       //var overlay = gapi.hangout.av.effects.createOverlay();
-      gapi.hangout.hideApp();
     }
   });
 }

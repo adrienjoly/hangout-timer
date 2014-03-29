@@ -38,6 +38,9 @@
 </style>
 <body>
 
+	<canvas id="img">
+	</canvas>
+
 	<script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
 
 	<h3>Hangout Timer</h3>
