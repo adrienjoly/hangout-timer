@@ -1,7 +1,6 @@
 //onStateChanged.add(callback);
 
-console.log("coucou")
-
+/*
 function showParticipants() {
   var participants = gapi.hangout.getParticipants();
 
@@ -22,16 +21,17 @@ function showParticipants() {
 
   div.innerHTML = retVal;
 }
-
+*/
 function init() {
   // When API is ready...                                                         
-  gapi.hangout.onApiReady.add(
-      function(eventObj) {
-        if (eventObj.isApiReady) {
-          document.getElementById('showParticipants')
-            .style.visibility = 'visible';
-        }
-      });
+  gapi.hangout.onApiReady.add(function(eventObj) {
+    if (eventObj.isApiReady) {
+      console.log("ready");
+      document.getElementById('showParticipants').style.visibility = 'visible';
+      var overlay = gapi.hangout.av.effects.createOverlay();
+      gapi.hangout.hideApp();
+    }
+  });
 }
 
 // Wait for gadget to load.                                                       
