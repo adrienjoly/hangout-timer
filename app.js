@@ -38,7 +38,7 @@ function init() {
       console.log("ready", gapi.hangout);
       gapi.hangout.hideApp();
       //var overlay = gapi.hangout.av.effects.createOverlay();
-      var imgRsc = gapi.hangout.av.effects.createImageResource(img.toDataUrl());
+      var imgRsc = gapi.hangout.av.effects.createImageResource(img.toDataURL());
       imgRsc.showOverlay();
     }
   });
