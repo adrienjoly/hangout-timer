@@ -19,7 +19,8 @@ include = (function(){
 	};
 })();
 
-include("//hangout-timer-app.appspot.com/Hourglass.js?_t"+Date.now(), function(){
+// Wait for gadget to load.
+gadgets.util.registerOnLoadHandler(function(){
 
 	function HangoutOverlay(){
 		var prevImgRsc = null;
@@ -55,6 +56,9 @@ include("//hangout-timer-app.appspot.com/Hourglass.js?_t"+Date.now(), function()
 		});
 	}
 
-	// Wait for gadget to load.                                                       
-	gadgets.util.registerOnLoadHandler(init);
+	include("//hangout-timer-app.appspot.com/Hourglass.js?_t="+Date.now(), function(){
+		console.log("Hourglass", Hourglass);
+		init();
+	});
+
 });
