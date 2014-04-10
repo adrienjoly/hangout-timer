@@ -1,26 +1,30 @@
 //onStateChanged.add(callback);
 
-include = (function(){
-	var FINAL_STATES = {"loaded": true, "complete": true, 4: true},
-		head = document.getElementsByTagName("head")[0],
-		pending = {};
-	return function(src, cb){
-		if (pending[src]) return;
-		pending[src] = true;
-		var inc = document.createElement("script");
-		inc.onload = inc.onreadystatechange = function() {
-			if (pending[src] && (!inc.readyState || FINAL_STATES[inc.readyState])) {
-				cb && cb();
-				delete pending[src];
-			}
-		};
-		inc.src = src;
-		head.appendChild(inc);
-	};
-})();
+console.log("Wait for gadget to load...");
 
-// Wait for gadget to load.
 gadgets.util.registerOnLoadHandler(function(){
+
+	console.log("load handler fired!");
+
+	var include = (function(){
+		var FINAL_STATES = {"loaded": true, "complete": true, 4: true},
+			head = document.getElementsByTagName("head")[0],
+			pending = {};
+		return function(src, cb){
+			console.log("including", src, "...");
+			if (pending[src]) return;
+			pending[src] = true;
+			var inc = document.createElement("script");
+			inc.onload = inc.onreadystatechange = function() {
+				if (pending[src] && (!inc.readyState || FINAL_STATES[inc.readyState])) {
+					cb && cb();
+					delete pending[src];
+				}
+			};
+			inc.src = src;
+			head.appendChild(inc);
+		};
+	})();
 
 	function HangoutOverlay(){
 		var prevImgRsc = null;
