@@ -15,17 +15,17 @@ function Hourglass(canvas){
 		ctx.stroke();
 
 		ctx.fillStyle = 'white';
-		ctx.fillRect(w/2 - 20, 20, w/2 + 20, 20 + 40);
+		ctx.fillRect(w/2 - 10, 10, 20, 40);
 		ctx.fillStyle = 'blue';
-		ctx.fillRect(w/2 - 19, 21, w/2 + 19, 19 + (ratio * 38));
+		ctx.fillRect(w/2 - 9, 11, 18, (ratio * 38));
 		ctx.fillStyle = 'red';
 		ctx.fillRect(10, 10, 20, 20);
 		ctx.fillStyle = 'green';
-		ctx.fillRect(w-10, h-10, w-20, h-20);
+		ctx.fillRect(w-30, h-30, 20, 20);
 	}
 	return {
 		drawToDataUrl: function(ratio){
-			drawTimer(ratio);
+			//drawTimer(ratio);
 				console.log("dataUrl");
 				console.log(canvas.toDataURL());
 			return canvas.toDataURL();
