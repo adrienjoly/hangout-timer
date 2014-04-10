@@ -21,13 +21,11 @@ function init() {
 		if (eventObj.isApiReady) {
 			console.log("Hangout API is ready", gapi.hangout);
 			hourglass = new Hourglass(document.getElementById("img"));
-			//console.log("hourglass", hourglass);
 			overlay = new HangoutOverlay();
 			console.log("overlay", overlay);
 			var ratio = 0;
 			setInterval(function(){
 				var dataUrl = hourglass.drawToDataUrl(ratio += 0.1);
-				console.log("=>", dataUrl);
 				overlay.setUrl(dataUrl);
 			}, 1000);
 			//gapi.hangout.hideApp();
