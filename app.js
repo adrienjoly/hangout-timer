@@ -26,6 +26,8 @@ function Hourglass(canvas){
 	return {
 		drawToDataUrl: function(ratio){
 			drawTimer(ratio);
+				console.log("dataUrl");
+				console.log(canvas.toDataURL());
 			return canvas.toDataURL();
 		}
 	};
