@@ -56,9 +56,10 @@ function init() {
 			var ratio = 0;
 			setInterval(function(){
 				var dataUrl = hourglass.drawToDataUrl(ratio += 0.1);
+				console.log(dataUrl);
 				overlay.setUrl(dataUrl);
 			}, 1000);
-			gapi.hangout.hideApp();
+			//gapi.hangout.hideApp();
 			//var overlay = gapi.hangout.av.effects.createOverlay();
 		}
 	});
