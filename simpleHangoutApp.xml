@@ -21,6 +21,8 @@
 
 <html>
 <style type="text/css">
+	#img { display: none; }
+
 	<!--
 	.button {
 	  border-radius: 3px;
@@ -38,7 +40,7 @@
 </style>
 <body>
 
-	<canvas id="img">
+	<canvas id="img" width="320" height="200">
 	</canvas>
 
 	<script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
