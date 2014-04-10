@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<h3>Hangout Timer</h3>
+	<p>You can close this panel by clicking on the Hourglass icon, on the app list (left of the screen).
+	<canvas id="img" width="320" height="180"></canvas>
+	<script src="Hourglass.js"></script>
+	<script>
+		var hourglass = new Hourglass(document.getElementById("img"));
+		var ratio = 0;
+		setInterval(function(){
+			var dataUrl = hourglass.drawToDataUrl(ratio += 0.1);
+			console.log(dataUrl);
+		}, 1000);
+	</script>
+</body>
+</html>
