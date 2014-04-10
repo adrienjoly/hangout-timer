@@ -6,18 +6,18 @@ function Hourglass(canvas){
 	console.log("Hourglass canvas size", w, h)
 	function drawTimer(ratio) {
 		ctx.clearRect(0, 0, w, h);
-		/*
+		
 		ctx.beginPath();
-		ctx.moveTo(w/2 - 20, ratio);
-		ctx.lineTo(w/2 + 20, ratio + 20);
-		ctx.moveTo(w/2 + 20, ratio);
-		ctx.lineTo(w/2 - 20, ratio + 20);
+		ctx.moveTo(0, 0);
+		ctx.lineTo(w, h);
+		ctx.moveTo(w, 0);
+		ctx.lineTo(0, h);
 		ctx.stroke();
-		*/
+		/*
 		ctx.fillStyle = 'white';
 		ctx.fillRect(w/2 - 20, 20, w/2 + 20, 20 + 40);
 		ctx.fillStyle = 'blue';
-		ctx.fillRect(w/2 - 19, 21, w/2 + 19, 19 + (ratio * 38));
+		ctx.fillRect(w/2 - 19, 21, w/2 + 19, 19 + (ratio * 38));*/
 		ctx.fillStyle = 'red';
 		ctx.fillRect(10, 10, 20, 20);
 		ctx.fillStyle = 'green';
