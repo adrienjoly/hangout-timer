@@ -40,7 +40,9 @@
 
 	<h3>Hangout Timer</h3>
 
-	<canvas id="img" width="320" height="200"></canvas>
+	<p>You can close this panel by clicking on the Hourglass icon, on the app list (left of the screen).
+
+	<canvas id="img" width="640" height="360"></canvas>
 
 	<script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
 
