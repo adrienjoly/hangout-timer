@@ -20,7 +20,7 @@ function Hourglass(canvas){
 	}
 	return {
 		drawToDataUrl: function(ratio){
-			drawTimer(x, y);
+			drawTimer(ratio);
 			return canvas.toDataURL();
 		}
 	};
