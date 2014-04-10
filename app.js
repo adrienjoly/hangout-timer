@@ -1,47 +1,47 @@
 //onStateChanged.add(callback);
 
-/*
-function showParticipants() {
-  var participants = gapi.hangout.getParticipants();
+function TimerOverlay(canvas){
+	var ctx = canvas.getContext("2d");
+	var prevImgRsc = null;
+	function drawTimer(x, y) {
+		ctx.beginPath();
+		ctx.moveTo(x - 20, y - 20);
+		ctx.lineTo(x + 20, y + 20);
+		ctx.moveTo(x + 20, y - 20);
+		ctx.lineTo(x - 20, y + 20);
+		ctx.stroke();
+		return canvas.toDataURL();
+	}
+	function refreshCanvas(dataUrl){
+		var imgRsc = gapi.hangout.av.effects.createImageResource(dataUrl);
+		imgRsc.showOverlay();
+		if (prevImgRsc)
+			prevImgRsc.dispose();
+		prevImgRsc = imgRsc;
+	}
+	return {
+		draw: function(x, y){
+			refreshCanvas(drawTimer(x, y));
+		}
+	};
+};
 
-  var retVal = '<p>Participants: </p><ul>';
 
-  for (var index in participants) {
-    var participant = participants[index];
-
-    if (!participant.person) {
-      retVal += '<li>A participant not running this app</li>';
-    }
-    retVal += '<li>' + participant.person.displayName + '</li>';
-  }
-
-  retVal += '</ul>';
-
-  var div = document.getElementById('participantsDiv');
-
-  div.innerHTML = retVal;
-}
-*/
 function init() {
-  // When API is ready...                                                         
-  gapi.hangout.onApiReady.add(function(eventObj) {
-    if (eventObj.isApiReady) {
-      var img = document.getElementById("img");
-      var ctx = img.getContext("2d");
-      var x = 20, y = 20;
-      ctx.beginPath();
-      ctx.moveTo(x - 20, y - 20);
-      ctx.lineTo(x + 20, y + 20);
-      ctx.moveTo(x + 20, y - 20);
-      ctx.lineTo(x - 20, y + 20);
-      ctx.stroke();
-      console.log("ready", gapi.hangout);
-      gapi.hangout.hideApp();
-      //var overlay = gapi.hangout.av.effects.createOverlay();
-      var imgRsc = gapi.hangout.av.effects.createImageResource(img.toDataURL());
-      imgRsc.showOverlay();
-    }
-  });
+	var timerOverlay;
+	// When API is ready...
+	gapi.hangout.onApiReady.add(function(eventObj) {
+		if (eventObj.isApiReady) {
+			console.log("Hangout API is ready", gapi.hangout);
+			timerOverlay = new TimerOverlay(document.getElementById("img"));
+			var x = 40;
+			setInterval(function(){
+				timerOverlay.draw(x++, 40);
+			}, 1000);
+			gapi.hangout.hideApp();
+			//var overlay = gapi.hangout.av.effects.createOverlay();
+		}
+	});
 }
 
 // Wait for gadget to load.                                                       
