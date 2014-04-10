@@ -1,18 +1,34 @@
 //onStateChanged.add(callback);
 
-function TimerOverlay(canvas){
+function Hourglass(canvas){
 	var ctx = canvas.getContext("2d");
-	var prevImgRsc = null;
-	function drawTimer(x, y) {
+	var w = canvas.width, h = canvas.height;
+	function drawTimer(ratio) {
+		ctx.clearRect(0, 0, w, h);
+		/*
 		ctx.beginPath();
-		ctx.moveTo(x - 20, y - 20);
-		ctx.lineTo(x + 20, y + 20);
-		ctx.moveTo(x + 20, y - 20);
-		ctx.lineTo(x - 20, y + 20);
+		ctx.moveTo(w/2 - 20, ratio);
+		ctx.lineTo(w/2 + 20, ratio + 20);
+		ctx.moveTo(w/2 + 20, ratio);
+		ctx.lineTo(w/2 - 20, ratio + 20);
 		ctx.stroke();
-		return canvas.toDataURL();
+		*/
+		ctx.fillStyle = 'white';
+		ctx.fillRect(w/2 - 20, 20, w/2 + 20, 20 + 40);
+		ctx.fillStyle = 'blue';
+		ctx.fillRect(w/2 - 19, 21, w/2 + 19, 19 + (ratio * 38));
 	}
-	function refreshCanvas(dataUrl){
+	return {
+		drawToDataUrl: function(ratio){
+			drawTimer(x, y);
+			return canvas.toDataURL();
+		}
+	};
+};
+
+function HangoutOverlay(){
+	var prevImgRsc = null;
+	function refreshFromUrl(dataUrl){
 		var imgRsc = gapi.hangout.av.effects.createImageResource(dataUrl);
 		imgRsc.showOverlay();
 		if (prevImgRsc)
@@ -20,23 +36,22 @@ function TimerOverlay(canvas){
 		prevImgRsc = imgRsc;
 	}
 	return {
-		draw: function(x, y){
-			refreshCanvas(drawTimer(x, y));
-		}
+		setUrl: refreshFromUrl
 	};
-};
-
+}
 
 function init() {
-	var timerOverlay;
+	var hourglass, overlay;
 	// When API is ready...
 	gapi.hangout.onApiReady.add(function(eventObj) {
 		if (eventObj.isApiReady) {
 			console.log("Hangout API is ready", gapi.hangout);
-			timerOverlay = new TimerOverlay(document.getElementById("img"));
-			var x = 40;
+			hourglass = new Hourglass(document.getElementById("img"));
+			overlay = new HangoutOverlay();
+			var ratio = 0;
 			setInterval(function(){
-				timerOverlay.draw(x++, 40);
+				var dataUrl = hourglass.drawToDataUrl(ratio += 0.1);
+				overlay.setUrl(dataUrl);
 			}, 1000);
 			gapi.hangout.hideApp();
 			//var overlay = gapi.hangout.av.effects.createOverlay();
