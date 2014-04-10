@@ -4,14 +4,38 @@
 	<h3>Hangout Timer</h3>
 	<p>You can close this panel by clicking on the Hourglass icon, on the app list (left of the screen).
 	<canvas id="img" width="320" height="180"></canvas>
-	<script src="Hourglass.js"></script>
+	<!--<script src="Hourglass.js"></script>-->
 	<script>
+
+include = (function(){
+	var FINAL_STATES = {"loaded": true, "complete": true, 4: true},
+		head = document.getElementsByTagName("head")[0],
+		pending = {};
+	return function(src, cb){
+		if (pending[src]) return;
+		pending[src] = true;
+		var inc = document.createElement("script");
+		inc.onload = inc.onreadystatechange = function() {
+			if (pending[src] && (!inc.readyState || FINAL_STATES[inc.readyState])) {
+				cb && cb();
+				delete pending[src];
+			}
+		};
+		inc.src = src;
+		head.appendChild(inc);
+	};
+})();
+
+include("Hourglass.js?_t"+Date.now(), function(){
+
 		var hourglass = new Hourglass(document.getElementById("img"));
 		var ratio = 0;
 		setInterval(function(){
 			var dataUrl = hourglass.drawToDataUrl(ratio += 0.1);
 			console.log(dataUrl);
 		}, 1000);
+
+});
 	</script>
 </body>
 </html>

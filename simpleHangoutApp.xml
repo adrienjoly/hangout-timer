@@ -21,8 +21,6 @@
 
 <html>
 <head>
-	<script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
-	<script src="//hangout-timer-app.appspot.com/Hourglass.js"></script>
 	<style type="text/css">
 	</style>
 </head>
@@ -32,6 +30,7 @@
 	<p>You can close this panel by clicking on the Hourglass icon, on the app list (left of the screen).
 	<canvas id="img" width="320" height="180"></canvas>
 
+	<script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
 	<script src="//hangout-timer-app.appspot.com/app.js"></script>
 
 </body>
