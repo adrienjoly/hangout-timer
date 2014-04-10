@@ -22,7 +22,6 @@
 <html>
 <style type="text/css">
 	<!--
-	#img { display: none; }
 	.button {
 	  border-radius: 3px;
 	  -moz-border-radius: 3px;
