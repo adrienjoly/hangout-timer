@@ -3,6 +3,7 @@
 function Hourglass(canvas){
 	var ctx = canvas.getContext("2d");
 	var w = canvas.width, h = canvas.height;
+	console.log("Hourglass canvas size", w, h)
 	function drawTimer(ratio) {
 		ctx.clearRect(0, 0, w, h);
 		/*
