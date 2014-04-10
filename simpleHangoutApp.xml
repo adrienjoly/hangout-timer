@@ -20,16 +20,18 @@
 	<Content type="html"><![CDATA[     
 
 <html>
-<style type="text/css">
-</style>
+<head>
+	<script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
+	<script src="//hangout-timer-app.appspot.com/Hourglass.js"></script>
+	<style type="text/css">
+	</style>
+</head>
 <body>
 
 	<h3>Hangout Timer</h3>
 	<p>You can close this panel by clicking on the Hourglass icon, on the app list (left of the screen).
 	<canvas id="img" width="320" height="180"></canvas>
 
-	<script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
-	<script src="//hangout-timer-app.appspot.com/Hourglass.js"></script>
 	<script src="//hangout-timer-app.appspot.com/app.js"></script>
 
 </body>
