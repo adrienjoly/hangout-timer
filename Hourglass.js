@@ -20,6 +20,9 @@ function Hourglass(canvas){
 		ctx.stroke();
 	}
 	return {
+		clear: function(){
+			ctx.clearRect(0, 0, r*2, r*2);
+		},
 		drawToDataUrl: function(ratio){
 			drawTimer(ratio);
 			return canvas.toDataURL();

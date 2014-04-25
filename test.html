@@ -4,6 +4,10 @@
 	<h3>Hangout Timer</h3>
 	<p>You can close this panel by clicking on the Hourglass icon, on the app list (left of the screen).
 	<canvas id="img" width="100" height="100"></canvas>
+	<button id="start2s">start 2s</button>
+	<button id="start10s">start 10s</button>
+	<button id="start30s">start 30s</button>
+	<button id="stop">stop</button>
 	<!--<script src="Hourglass.js"></script>-->
 	<script>
 		var include = (function(){
@@ -25,16 +29,32 @@
 			};
 		})();
 
-		var DURATION = 5 * 1000, // 5 seconds
-			CANVAS = document.getElementById("img");
+		var CANVAS = document.getElementById("img");
 
 		include("Hourglass.js?_t" + Date.now(), function(){
 			var hourglass = new Hourglass(CANVAS);
 			var stopwatch = new Stopwatch();
-			stopwatch.handler = function(){
-				hourglass.drawToDataUrl(stopwatch.elapsed / DURATION);
-			};
-			stopwatch.reset(DURATION).start();
+
+			function makeSet(duration){
+				return function(){
+					if (duration){
+						var ms = duration * 1000;
+						stopwatch.reset(ms);
+						hourglass.clear();
+						stopwatch.handler = function(){
+							hourglass.drawToDataUrl(stopwatch.elapsed / ms);
+						};
+						stopwatch.start();
+					}
+					else
+						stopwatch.stop();
+				};
+			}
+
+			document.getElementById("start2s").onclick = makeSet(2);
+			document.getElementById("start10s").onclick = makeSet(10);
+			document.getElementById("start30s").onclick = makeSet(30);
+			document.getElementById("stop").onclick = makeSet();
 		});
 	</script>
 </body>
