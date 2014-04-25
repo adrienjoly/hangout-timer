@@ -3,7 +3,7 @@
 <body>
 	<h3>Hangout Timer</h3>
 	<p>You can close this panel by clicking on the Hourglass icon, on the app list (left of the screen).
-	<canvas id="img" width="320" height="180"></canvas>
+	<canvas id="img" width="100" height="100"></canvas>
 	<!--<script src="Hourglass.js"></script>-->
 	<script>
 		var include = (function(){
@@ -31,12 +31,10 @@
 		include("Hourglass.js?_t" + Date.now(), function(){
 			var hourglass = new Hourglass(CANVAS);
 			var stopwatch = new Stopwatch();
-			stopwatch.reset(DURATION);
 			stopwatch.handler = function(){
-				console.log("watch", stopwatch.elapsed);
 				hourglass.drawToDataUrl(stopwatch.elapsed / DURATION);
 			};
-			stopwatch.start();
+			stopwatch.reset(DURATION).start();
 		});
 	</script>
 </body>
