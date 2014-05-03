@@ -1,6 +1,6 @@
-function Hourglass(canvas){
+function Hourglass(canvas, r){
 	var ctx = canvas.getContext("2d");
-	var r = Math.min(canvas.width, canvas.height) / 2;
+	var r = r || (Math.min(canvas.width, canvas.height) / 2);
 	/*
 	var w = canvas.width, h = canvas.height;
 	console.log("Hourglass canvas size", w, h)

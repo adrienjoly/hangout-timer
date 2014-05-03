@@ -52,6 +52,7 @@ gadgets.util.registerOnLoadHandler(function(){
 					hourglass.clear();
 					stopwatch.handler = function(){
 						hourglass.drawToDataUrl(stopwatch.elapsed / ms);
+						overlay.setUrl(dataUrl);
 					};
 					stopwatch.start();
 				}
@@ -60,22 +61,15 @@ gadgets.util.registerOnLoadHandler(function(){
 			};
 		}
 
-		document.getElementById("start2s").onclick = makeSet(2);
-		document.getElementById("start10s").onclick = makeSet(10);
-		document.getElementById("start30s").onclick = makeSet(30);
-		document.getElementById("stop").onclick = makeSet();
-
 		gapi.hangout.onApiReady.add(function(eventObj) {
 			if (eventObj.isApiReady) {
 				console.log("Hangout API is ready", gapi.hangout);
-				hourglass = new Hourglass(document.getElementById("img"));
+				hourglass = new Hourglass(document.getElementById("img"), 100);
 				overlay = new HangoutOverlay();
-				console.log("overlay", overlay);
-				var ratio = 0;
-				setInterval(function(){
-					var dataUrl = hourglass.drawToDataUrl(ratio += 0.1);
-					overlay.setUrl(dataUrl);
-				}, 1000);
+				document.getElementById("start2s").onclick = makeSet(2);
+				document.getElementById("start10s").onclick = makeSet(10);
+				document.getElementById("start30s").onclick = makeSet(30);
+				document.getElementById("stop").onclick = makeSet();
 				//gapi.hangout.hideApp();
 				//var overlay = gapi.hangout.av.effects.createOverlay();
 			}
