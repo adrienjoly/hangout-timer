@@ -13,7 +13,7 @@ function HangoutOverlay(){
 }
 
 include("//hangout-timer-app.appspot.com/Hourglass.js?_t="+Date.now(), function(){
-	console.log("[App] loaded Hourglass:", Hourglass);
+	console.log("[App] loaded Hourglass");
 
 	var hourglass = new Hourglass(document.getElementById("img"), 100),
 		overlay = new HangoutOverlay(),
@@ -26,7 +26,7 @@ include("//hangout-timer-app.appspot.com/Hourglass.js?_t="+Date.now(), function(
 				stopwatch.reset(ms);
 				hourglass.clear();
 				stopwatch.handler = function(){
-					hourglass.drawToDataUrl(stopwatch.elapsed / ms);
+					var dataUrl = hourglass.drawToDataUrl(stopwatch.elapsed / ms);
 					overlay.setUrl(dataUrl);
 				};
 				stopwatch.start();
