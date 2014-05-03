@@ -12,7 +12,7 @@
  * License for the specific language governing permissions and limitations under
  * the License
 -->
-	<ModulePrefs title="Hangout Starter">
+	<ModulePrefs title="Hangout Timer">
 		<Require feature="rpc" />
 		<Require feature="views" />
 		<Require feature="locked-domain" />
@@ -38,7 +38,7 @@
 		<canvas id="img" width="320" height="180" style="display:none;"></canvas>
 
 		<script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
-		<script src="//hangout-timer-app.appspot.com/loader.js"></script>
+		<script src="//hangout-timer-app.appspot.com/src/loader.js"></script>
 
 	</body>
 </html>

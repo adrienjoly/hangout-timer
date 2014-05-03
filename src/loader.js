@@ -3,7 +3,7 @@ var include = (function(){
 		head = document.getElementsByTagName("head")[0],
 		pending = {};
 	return function(src, cb){
-		console.log("[app loader] including", src, "...");
+		console.log("[app] loading", src, "...");
 		if (pending[src]) return;
 		pending[src] = true;
 		var inc = document.createElement("script");
@@ -23,6 +23,6 @@ var include = (function(){
 gadgets.util.registerOnLoadHandler(function(){
 	gapi.hangout.onApiReady.add(function(eventObj) {
 		if (eventObj.isApiReady)
-			include("//hangout-timer-app.appspot.com/app.js?_t="+Date.now());
+			include("//hangout-timer-app.appspot.com/src/app.js?_t="+Date.now());
 	});
 });
