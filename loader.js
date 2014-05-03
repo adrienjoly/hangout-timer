@@ -20,14 +20,9 @@ var include = (function(){
 
 //onStateChanged.add(callback);
 
-//console.log("Wait for gadget to load...");
-
 gadgets.util.registerOnLoadHandler(function(){
-	//console.log("load handler fired!");
 	gapi.hangout.onApiReady.add(function(eventObj) {
-		if (eventObj.isApiReady) {
-			//console.log("Hangout API is ready", gapi.hangout);
+		if (eventObj.isApiReady)
 			include("//hangout-timer-app.appspot.com/app.js?_t="+Date.now());
-		}
 	});
 });

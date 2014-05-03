@@ -1,6 +1,7 @@
-function Hourglass(canvas, r){
+function Hourglass(canvas, r, x, y){
 	var ctx = canvas.getContext("2d");
 	var r = r || (Math.min(canvas.width, canvas.height) / 2);
+	var x = x || r, y = y || r;
 	/*
 	var w = canvas.width, h = canvas.height;
 	console.log("Hourglass canvas size", w, h)
@@ -15,13 +16,13 @@ function Hourglass(canvas, r){
 	function drawTimer(ratio) {
 		var angle = Math.PI * 2 * ratio - Math.PI / 2;
 		ctx.beginPath();
-		ctx.moveTo(r, r);
-		ctx.lineTo(r + r * Math.cos(angle), r + r * Math.sin(angle));
+		ctx.moveTo(x, y);
+		ctx.lineTo(x + r * Math.cos(angle), y + r * Math.sin(angle));
 		ctx.stroke();
 	}
 	return {
 		clear: function(){
-			ctx.clearRect(0, 0, r*2, r*2);
+			ctx.clearRect(x-r, y-r, x+r, y+r);
 		},
 		drawToDataUrl: function(ratio){
 			drawTimer(ratio);
