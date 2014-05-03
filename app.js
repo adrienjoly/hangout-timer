@@ -41,8 +41,30 @@ gadgets.util.registerOnLoadHandler(function(){
 	}
 
 	function init() {
-		var hourglass, overlay;
+		var hourglass, overlay, stopwatch = new Stopwatch();
 		// When API is ready...
+
+		function makeSet(duration){
+			return function(){
+				if (duration){
+					var ms = duration * 1000;
+					stopwatch.reset(ms);
+					hourglass.clear();
+					stopwatch.handler = function(){
+						hourglass.drawToDataUrl(stopwatch.elapsed / ms);
+					};
+					stopwatch.start();
+				}
+				else
+					stopwatch.stop();
+			};
+		}
+
+		document.getElementById("start2s").onclick = makeSet(2);
+		document.getElementById("start10s").onclick = makeSet(10);
+		document.getElementById("start30s").onclick = makeSet(30);
+		document.getElementById("stop").onclick = makeSet();
+
 		gapi.hangout.onApiReady.add(function(eventObj) {
 			if (eventObj.isApiReady) {
 				console.log("Hangout API is ready", gapi.hangout);
