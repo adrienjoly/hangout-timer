@@ -36,9 +36,10 @@ include("//hangout-timer-app.appspot.com/Hourglass.js?_t="+Date.now(), function(
 		};
 	}
 
-	document.getElementById("start2s").onclick = makeSet(2);
-	document.getElementById("start10s").onclick = makeSet(10);
 	document.getElementById("start30s").onclick = makeSet(30);
+	document.getElementById("start1m").onclick = makeSet(60);
+	document.getElementById("start2m").onclick = makeSet(2*60);
+	document.getElementById("start5m").onclick = makeSet(5*60);
 	document.getElementById("stop").onclick = makeSet();
 	//gapi.hangout.hideApp();
 	//var overlay = gapi.hangout.av.effects.createOverlay();
