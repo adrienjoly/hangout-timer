@@ -2,23 +2,22 @@ function Hourglass(canvas, r, x, y){
 	var ctx = canvas.getContext("2d");
 	var r = r || (Math.min(canvas.width, canvas.height) / 2);
 	var x = x || r, y = y || r;
-	/*
-	var w = canvas.width, h = canvas.height;
-	console.log("Hourglass canvas size", w, h)
-	function drawTimer(ratio) {
-		//ctx.clearRect(0, 0, w, h);
-		ctx.fillStyle = 'white';
-		ctx.fillRect(w/2 - 10, 10, 20, 40);
-		ctx.fillStyle = 'blue';
-		ctx.fillRect(w/2 - 9, 11, 18, (ratio * 38));
+	function getColor(ratio) {
+		if (ratio >= 0.75)
+			return "red";
+		else if (ratio >= 0.5)
+			return "orange";
+		else
+			return "green";
 	}
-	*/
+	var startAngle =  - Math.PI / 2;
 	function drawTimer(ratio) {
-		var angle = Math.PI * 2 * ratio - Math.PI / 2;
+		var angle = startAngle + Math.PI * 2 * ratio;
 		ctx.beginPath();
-		ctx.moveTo(x, y);
-		ctx.lineTo(x + r * Math.cos(angle), y + r * Math.sin(angle));
-		ctx.stroke();
+		ctx.arc(x, y, r, startAngle, angle);
+		ctx.lineTo(x, y);
+		ctx.fillStyle = getColor(ratio);
+		ctx.fill();
 	}
 	return {
 		clear: function(){
