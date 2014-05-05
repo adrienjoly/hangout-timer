@@ -14,7 +14,7 @@ function HangoutOverlay(){
 
 include("//hangout-timer-app.appspot.com/src/Hourglass.js?_t="+Date.now(), function(){
 	var canvas = document.getElementById("img");
-	var hourglass = new Hourglass(canvas, canvas,height / 10, canvas.width / 2, canvas.height / 2),
+	var hourglass = new Hourglass(canvas, canvas.height / 10, canvas.width / 2, canvas.height / 2),
 		overlay = new HangoutOverlay(),
 		stopwatch = new Stopwatch();
 
