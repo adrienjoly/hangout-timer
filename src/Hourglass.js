@@ -53,7 +53,7 @@ function Stopwatch(){
 					that.handler(that);
 				if (that.elapsed >= that.duration)
 					that.stop();
-			}, 1);
+			}, 500);
 		},
 		reset: function(duration){
 			this.stop();
