@@ -32,7 +32,10 @@
 		var CANVAS = document.getElementById("img");
 
 		include("src/Hourglass.js?_t" + Date.now(), function(){
-			var hourglass = new Hourglass(CANVAS);
+			var radius = CANVAS.height / 12;
+			console.log(CANVAS, radius, CANVAS.width / 2, CANVAS.height - radius * 3);
+			var hourglass = new Hourglass(CANVAS, radius, CANVAS.width / 2, CANVAS.height - radius * 3);
+			//var hourglass = new Hourglass(CANVAS);
 			var stopwatch = new Stopwatch();
 
 			function makeSet(duration){
