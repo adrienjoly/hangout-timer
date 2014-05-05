@@ -16,6 +16,11 @@ function Hourglass(canvas, r, x, y){
 		ctx.beginPath();
 		ctx.arc(x, y, r, startAngle, angle);
 		ctx.lineTo(x, y);
+		ctx.fillStyle = "rgba(128,128,128,0.5)";
+		ctx.fill();
+		ctx.beginPath();
+		ctx.arc(x, y, r*0.9, startAngle, angle);
+		ctx.lineTo(x, y);
 		ctx.fillStyle = getColor(ratio);
 		ctx.fill();
 	}
@@ -24,6 +29,7 @@ function Hourglass(canvas, r, x, y){
 			ctx.clearRect(x-r, y-r, x+r, y+r);
 		},
 		drawToDataUrl: function(ratio){
+			this.clear();
 			drawTimer(ratio);
 			return canvas.toDataURL();
 		}
