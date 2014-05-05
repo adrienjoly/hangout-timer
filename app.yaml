@@ -8,3 +8,9 @@ handlers:
 - url: /(.*\..*)
   static_files: \1
   upload: (.*\..*)
+
+# site root
+- url: /
+  static_files: index.html
+  upload: index.html
+  expiration: "15m"
