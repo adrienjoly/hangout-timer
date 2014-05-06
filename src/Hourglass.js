@@ -8,13 +8,13 @@ function Hourglass(canvas, r, x, y){
 		else if (ratio >= 0.5)
 			return "orange";
 		else
-			return "green";
+			return "white";
 	}
 	var startAngle =  - Math.PI / 2;
 	function drawTimer(ratio) {
 		var angle = startAngle + Math.PI * 2 * ratio;
 		ctx.beginPath();
-		ctx.arc(x, y, r, startAngle, angle);
+		ctx.arc(x, y, r, 0, Math.PI * 2);
 		ctx.lineTo(x, y);
 		ctx.fillStyle = "rgba(128,128,128,0.5)";
 		ctx.fill();
