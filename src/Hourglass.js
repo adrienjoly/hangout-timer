@@ -27,7 +27,7 @@ function Hourglass(canvas, r, x, y){
 	return {
 		clear: function(){
 			//ctx.clearRect(x-r, y-r, x+r, y+r);
-			ctx.clearRect(0, 0, canvas.width, camvas.height);
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
 		},
 		drawToDataUrl: function(ratio){
 			this.clear();
