@@ -13,13 +13,13 @@ function HangoutOverlay(){
 }
 
 include("//hangout-timer-app.appspot.com/src/Hourglass.js?_t="+Date.now(), function(){
-	var canvas = document.getElementById("img");
-	var radius = canvas.height / 12;
-	var hourglass = new Hourglass(canvas, radius, canvas.width / 2, canvas.height - radius * 2),
+	var canvas = document.getElementById("img"),
 		overlay = new HangoutOverlay(),
 		stopwatch = new Stopwatch();
-
-	function makeSet(duration){
+	
+	function makeSet(duration, big){
+		var radius = big ? canvas.height * 0.9 : canvas.height / 12;
+		var hourglass = new Hourglass(canvas, radius, canvas.width / 2, big ? canvas.height / 2 : canvas.height - radius * 2);
 		return function(){
 			if (duration){
 				var ms = duration * 1000;
@@ -44,6 +44,11 @@ include("//hangout-timer-app.appspot.com/src/Hourglass.js?_t="+Date.now(), funct
 	document.getElementById("start2m").onclick = makeSet(2*60);
 	document.getElementById("start5m").onclick = makeSet(5*60);
 	document.getElementById("stop").onclick = makeSet();
+
+	document.getElementById("big30s").onclick = makeSet(30, true);
+	document.getElementById("big1m").onclick = makeSet(60, true);
+	document.getElementById("big2m").onclick = makeSet(2*60, true);
+	document.getElementById("big5m").onclick = makeSet(5*60, true);
 	//gapi.hangout.hideApp();
 	//var overlay = gapi.hangout.av.effects.createOverlay();
 });
