@@ -33,6 +33,7 @@
 		<button id="start1m">start 1mn</button>
 		<button id="start2m">start 2mn</button>
 		<button id="start5m">start 5mn</button>
+		<button id="start15m">start 15mn</button>
 		<button id="stop">stop</button>
 
 		<br>
@@ -40,6 +41,7 @@
 		<button id="big1m">big 1mn</button>
 		<button id="big2m">big 2mn</button>
 		<button id="big5m">big 5mn</button>
+		<button id="big15m">big 15mn</button>
 
 		<canvas id="img" width="640" height="360" style="display:none;"></canvas>
 
