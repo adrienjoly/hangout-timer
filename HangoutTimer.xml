@@ -31,6 +31,7 @@
 
 		<button id="start30s">start 30s</button>
 		<button id="start1m">start 1mn</button>
+		<button id="start90s">start 90s</button>
 		<button id="start2m">start 2mn</button>
 		<button id="start5m">start 5mn</button>
 		<button id="start15m">start 15mn</button>
@@ -39,6 +40,7 @@
 		<br>
 		<button id="big30s">big 30s</button>
 		<button id="big1m">big 1mn</button>
+		<button id="big90s">big 90s</button>
 		<button id="big2m">big 2mn</button>
 		<button id="big5m">big 5mn</button>
 		<button id="big15m">big 15mn</button>
