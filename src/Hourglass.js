@@ -3,9 +3,9 @@ function Hourglass(canvas, r, x, y){
 	var r = r || (Math.min(canvas.width, canvas.height) / 2);
 	var x = x || r, y = y || r;
 	function getColor(ratio) {
-		if (ratio >= 0.75)
+		if (ratio >= 0.66)
 			return "red";
-		else if (ratio >= 0.5)
+		else if (ratio >= 0.33)
 			return "orange";
 		else
 			return "white";
