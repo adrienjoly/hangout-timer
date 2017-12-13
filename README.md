@@ -9,4 +9,4 @@ It was developed to improve productivity during our remote meetings, by granting
 
 Demo: https://www.youtube.com/watch?v=VKtM0je-CTs
 
-More info + install: http://hangout-timer-app.appspot.com/
+More info + install: ~~http://hangout-timer-app.appspot.com/~~
