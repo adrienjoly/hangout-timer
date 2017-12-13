@@ -1,3 +1,5 @@
+⚠️ Google Hangout does not longer supports 3rd-party plug-ins like Hangout Timer, since April 25th, 2017. Read more here: https://developers.google.com/+/hangouts/support-faq
+
 Hangout Timer
 =============
 
